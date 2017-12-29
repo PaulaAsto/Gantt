@@ -1,6 +1,6 @@
 ﻿/*
 Created: 26/12/2017
-Modified: 26/12/2017
+Modified: 29/12/2017
 Model: gantt
 Database: PostgreSQL 9.5
 */
@@ -39,7 +39,7 @@ CREATE SEQUENCE "sec_miniactividad"
  CACHE 1
 ;
 
-CREATE SEQUENCE "sec_estado"
+CREATE SEQUENCE "sec_estadogant"
  INCREMENT BY 1
  START WITH 1
  MAXVALUE 9223372036854775807
@@ -53,7 +53,8 @@ CREATE SEQUENCE "sec_estado"
 
 CREATE TABLE "proyecto"(
  "proy_id" Bigint NOT NULL,
- "nombre" Character varying(80) NOT NULL
+ "nombre" Character varying(80) NOT NULL,
+ "est" Smallint NOT NULL
 )
 ;
 
@@ -70,7 +71,8 @@ CREATE TABLE "tarea"(
  "nombre" Character varying(200) NOT NULL,
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
- "color" Character varying(50) NOT NULL
+ "color" Character varying(50) NOT NULL,
+ "est" Smallint NOT NULL
 )
 ;
 
@@ -88,6 +90,7 @@ ALTER TABLE "tarea" ADD CONSTRAINT "Key2" PRIMARY KEY ("tare_id")
 
 CREATE TABLE "actividad"(
  "acti_id" Bigint NOT NULL,
+ "tare_id" Bigint,
  "nombre" Character varying(256) NOT NULL,
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
@@ -95,7 +98,7 @@ CREATE TABLE "actividad"(
  "horainicio" Timestamp NOT NULL,
  "horafin" Timestamp NOT NULL,
  "descripcion" Character varying(1000) NOT NULL,
- "tare_id" Bigint
+ "est" Smallint NOT NULL
 )
 ;
 
@@ -113,11 +116,12 @@ ALTER TABLE "actividad" ADD CONSTRAINT "Key3" PRIMARY KEY ("acti_id")
 
 CREATE TABLE "miniactividad"(
  "mini_acti_id" Bigint NOT NULL,
+ "acti_id" Bigint,
+ "esta_id" Bigint,
  "nombre" Character varying(256) NOT NULL,
  "color" Character varying(50) NOT NULL,
  "porcentajeavance" Double precision NOT NULL,
- "acti_id" Bigint,
- "esta_id" Bigint
+ "est" Bigint NOT NULL
 )
 ;
 
@@ -134,18 +138,19 @@ CREATE INDEX "IX_Relationship4" ON "miniactividad" ("esta_id")
 ALTER TABLE "miniactividad" ADD CONSTRAINT "Key4" PRIMARY KEY ("mini_acti_id")
 ;
 
--- Table estado
+-- Table estadogant
 
-CREATE TABLE "estado"(
- "esta_id" Bigint NOT NULL,
+CREATE TABLE "estadogant"(
+ "esta_gant_id" Bigint NOT NULL,
  "nombre" Character varying(20) NOT NULL,
- "color" Character varying(50) NOT NULL
+ "color" Character varying(50) NOT NULL,
+ "est" Smallint NOT NULL
 )
 ;
 
--- Add keys for table estado
+-- Add keys for table estadogant
 
-ALTER TABLE "estado" ADD CONSTRAINT "Key5" PRIMARY KEY ("esta_id")
+ALTER TABLE "estadogant" ADD CONSTRAINT "Key5" PRIMARY KEY ("esta_gant_id")
 ;
 
 -- Create relationships section ------------------------------------------------- 
@@ -159,7 +164,7 @@ ALTER TABLE "actividad" ADD CONSTRAINT "Relationship2" FOREIGN KEY ("tare_id") R
 ALTER TABLE "miniactividad" ADD CONSTRAINT "Relationship3" FOREIGN KEY ("acti_id") REFERENCES "actividad" ("acti_id") ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
-ALTER TABLE "miniactividad" ADD CONSTRAINT "Relationship4" FOREIGN KEY ("esta_id") REFERENCES "estado" ("esta_id") ON DELETE NO ACTION ON UPDATE NO ACTION
+ALTER TABLE "miniactividad" ADD CONSTRAINT "Relationship4" FOREIGN KEY ("esta_id") REFERENCES "estadogant" ("esta_gant_id") ON DELETE NO ACTION ON UPDATE NO ACTION
 ;
 
 
@@ -171,7 +176,7 @@ ALTER SEQUENCE "sec_actividad" OWNED BY "actividad"."acti_id"
 ;
 ALTER SEQUENCE "sec_miniactividad" OWNED BY "miniactividad"."mini_acti_id"
 ;
-ALTER SEQUENCE "sec_estado" OWNED BY "estado"."esta_id"
+ALTER SEQUENCE "sec_estadogant" OWNED BY "estadogant"."esta_gant_id"
 ;
 
 
