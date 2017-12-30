@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 
 import { TimelineComponent }    from './timeline/timeline.component';
 import { ListActivityComponent }    from './timeline/listActivities/listActivities.component';
+import { ProyectComponent } from './createProyect/proyect.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TimelineComponent,
-    ListActivityComponent    
+    ListActivityComponent,
+    ProyectComponent 
   ],
   imports: [
     BrowserModule,
