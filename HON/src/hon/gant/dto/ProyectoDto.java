@@ -2,16 +2,15 @@ package hon.gant.dto;
 
 public class ProyectoDto {
 	
-	private Long id;
+	private Integer estado;
 
-	public Long getId() {
-		return id;
+	public Integer getEstado() {
+		return estado;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public void setEstado(Integer estado) {
+		this.estado = estado;
 	}
 	
 	
-
 }

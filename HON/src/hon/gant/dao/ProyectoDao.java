@@ -16,10 +16,9 @@ public class ProyectoDao {
 	 @PersistenceContext(unitName="HON")
 	 protected EntityManager entityManager;
 
-	 public List<Proyecto> retrieveParentWithChildren(ProyectoDto filtro) {
+	 public List<Proyecto> getAllProjects(ProyectoDto filtro) {
 		 TypedQuery<Proyecto> q = entityManager.createNamedQuery(Proyecto.ALL, Proyecto.class);
-				 //.createQuery("SELECT p FROM " + "Proyecto " + "p ");
-		 q.setParameter("id", filtro.getId());
+		 q.setParameter("estado", filtro.getEstado());
 		 List<Proyecto> lista = q.getResultList();
 		 return lista;
 	 }

@@ -1,4 +1,4 @@
-package hon.gant.api;
+package hon.gant.dao;
 
 import javax.enterprise.inject.Produces;
 import javax.persistence.EntityManager;

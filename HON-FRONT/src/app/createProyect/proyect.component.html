@@ -17,6 +17,13 @@
             </fieldset>
         </form>
         <div>
+            <ul class="project">
+                <li *ngFor="let proj of proyectos">
+                    <span class="badge">{{proj.id}}</span> {{proj.name}}
+                    <button class="go" title="go project"
+                    (click)="delete(hero)"><i class="fa fa-hand-o-right"></i></button>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

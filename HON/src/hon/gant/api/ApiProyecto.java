@@ -30,7 +30,7 @@ public class ApiProyecto extends Application{
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Proyecto> r(ProyectoDto filtro) {
-		return proyectoDao.retrieveParentWithChildren(filtro);
+		return proyectoDao.getAllProjects(filtro);
 	}
 	
 	@POST

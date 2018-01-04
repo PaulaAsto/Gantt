@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "proyecto")
 @NamedQueries({
-@NamedQuery(name="Proyecto.all", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre) FROM Proyecto p where p.id= :id")
+@NamedQuery(name="Proyecto.all", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre) FROM Proyecto p where p.estado= :estado")
 })
 public class Proyecto implements Serializable{
 
