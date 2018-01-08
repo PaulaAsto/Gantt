@@ -34,6 +34,30 @@ public class ApiProyecto extends Application{
 	}
 	
 	@POST
+	@Path("/cProject") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void c(ProyectoDto filtro) {
+		proyectoDao.cProject(filtro);
+	}
+	
+	@POST
+	@Path("/uProject") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void u(ProyectoDto filtro) {
+		proyectoDao.uProject(filtro);
+	}
+	
+	@POST
+	@Path("/dProject") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void d(ProyectoDto filtro) {
+		proyectoDao.dProject(filtro);
+	}
+	
+	@POST
 	@Path("/prueba")
 	public Response imprimirMessage() {
 		String salida = "Hola desde un Restful Web Service: Honami ";

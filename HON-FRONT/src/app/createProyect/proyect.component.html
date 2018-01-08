@@ -19,9 +19,13 @@
         <div>
             <ul class="project">
                 <li *ngFor="let proj of proyectos">
-                    <span class="badge">{{proj.id}}</span> {{proj.name}}
-                    <button class="go" title="go project"
-                    (click)="delete(hero)"><i class="fa fa-hand-o-right"></i></button>
+                    <span class="badge">{{proj.id}}</span> {{proj.nombre}}
+                    <button class="go dupdate" title="update project"
+                    (click)="update(hero)"><i class="fa fa-pencil"></i></button>
+                    <button class="go ddelete" title="delete project"
+                    (click)="delete(proj.id)"><i class="fa fa-trash-o"></i></button>
+                    <button class="go dgo" title="go project"
+                    (click)="go(hero)"><i class="fa fa-hand-o-right"></i></button>
                 </li>
             </ul>
         </div>

@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -24,7 +24,7 @@
     "core-js": "^2.4.1",
     "ngx-bootstrap": "^2.0.0-rc.0",
     "rxjs": "^5.5.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.4"
   },
   "devDependencies": {
     "@angular/cli": "1.6.2",

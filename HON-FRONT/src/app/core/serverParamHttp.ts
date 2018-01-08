@@ -1,7 +1,6 @@
 import { Http, Headers, Response, RequestOptions, ResponseContentType} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-import { AppConfig } from '../app.config';
 
 export class ServerParamHttp {
   url: string;
@@ -66,7 +65,6 @@ export class ServerParamHttp {
   }
 
   http():Observable<any>{
-    this.url = AppConfig.IP_ROUTE + this.url;
     return this.restCall();
    }
    private log(cad:any)

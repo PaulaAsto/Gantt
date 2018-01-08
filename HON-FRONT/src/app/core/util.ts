@@ -84,42 +84,4 @@ export class Util {
     {
         console.log(cad);
     }
-
-    /**
-	 * Funciones para la Conexión del las llamadas REST
-	 */
-
-    private paramMostrar = new Subject<any>();
-    paramMostrar$ = this.paramMostrar.asObservable();
-    public setParamMostrar(paramMostrar: any) {
-        this.log("util-paramsMO:" + paramMostrar);
-        this.paramMostrar.next(paramMostrar);
-    }
-
-    private paramGenerar = new Subject<any>();
-    paramGenerar$ = this.paramGenerar.asObservable();
-    public setParamGenerar(paramGenerar: any) {
-        this.log("util-paramsGE:" + paramGenerar);
-        this.paramGenerar.next(paramGenerar);
-    }
-
-    private paramActualizar = new Subject<any>();
-    paramActualizar$ = this.paramActualizar.asObservable();
-    public setParamActualizar(paramActualizar: any) {
-        this.log("util-paramsAC:" + paramActualizar);
-        this.paramActualizar.next(paramActualizar);
-    }
-
-    private paramAnular = new Subject<any>();
-    paramAnular$ = this.paramAnular.asObservable();
-    public setParamAnular(paramAnular: any) {
-        this.log("util-paramsAN:" + paramAnular);
-        this.paramAnular.next(paramAnular);
-    }
-
-    private paramAsignar = new Subject<any>();
-    paramAsignar$ = this.paramAsignar.asObservable();
-    public setParamAsignar(paramAsignar: any) {
-        this.paramAsignar.next(paramAsignar);
-    }
 }

@@ -6,6 +6,10 @@ import { DtoProyecto } from '../dto/dtoProyecto'
 import { error } from 'selenium-webdriver';
 import { Subscriber } from 'rxjs/Subscriber';
 
+import { RutasApiConfig } from '../core/rutasapi.config';
+import { ConstantesConfig } from '../core/constantes.config';
+import { AppComponent } from '../app.component';
+
 @Component({
   selector: 'create-proyect',
   templateUrl: './proyect.component.html',
@@ -17,40 +21,48 @@ export class ProyectComponent implements OnInit{
   private proyectos:DtoProyecto[] = [];
   
   constructor( private _util: Util){
-    this.loadProjects();
+    
   }
     ngOnInit(){
-      //this.loadProjects();
+      this.loadProjects();
     }
 
-    private loadProjects(){
-
-      let url = 'rest/apiServices/allProyect';
-      let dto = {
-        estado: 1
-      }
+    private loadProjects():void{
+      let url = RutasApiConfig.ALL_PROJECTS;
+      let dto = { estado: ConstantesConfig.ESTADO_OK }
       this._util.http({url: url, data: dto}).subscribe(
         data=>{
-          if(data.length != 0)
-            console.log("Esto es data: " + data);
-          else
-            console.log("Esto es data en else: " + data);
+          console.log(data);
+          for (let i = 0; i < data.length; i++) {
+            let proj = new DtoProyecto(data[i].id,data[i].nombre);
+            this.proyectos.push(proj);
+          }
         },
         error=>{
-          console.log( "Esto es error: " + error)
+          console.log(error);
         }
       );
-      /**
-       * let url = 'http://localhost:8080/HON/rest/apiServices/allProyect';
-      let estado = 1;
-      this.httpClient.post(url, {estado: estado})
-      .subscribe(
-        data =>{
-          console.log("Esto es data " + data)
+    }
+
+    private delete(identificador: number): void {
+      console.log(identificador);
+      let url = RutasApiConfig.D_PROJECT;
+      let dto = { id: identificador}
+      this._util.http({url: url, data: dto}).subscribe(
+        data => {
+          console.log(data);
         },
         error => {
-          console.log("No se, hay un problema :'v " + error)
-        });
-       */
+          console.log(error);
+        }
+      )
+      // .subscribe(
+      //   data =>{
+      //     console.log(data);
+      //   },
+      //   error =>{
+      //     console.log(error);
+      //   }
+      // )
     }
 }
