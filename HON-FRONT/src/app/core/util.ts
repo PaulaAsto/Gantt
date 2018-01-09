@@ -80,7 +80,7 @@ export class Util {
         return JSON.parse(JSON.stringify(object));
     }
 
-    private log(cad:any)
+    public log(cad:any)
     {
         console.log(cad);
     }

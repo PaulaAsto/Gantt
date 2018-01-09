@@ -6,17 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { Util } from './core/util';
 
-import { TimelineComponent }    from './timeline/timeline.component';
-import { ListActivityComponent }    from './timeline/listActivities/listActivities.component';
-import { ProyectComponent } from './createProyect/proyect.component';
-
+import { ProyectComponent } from './pages/project/project.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TimelineComponent,
-    ListActivityComponent,
-    ProyectComponent 
+    ProyectComponent
   ],
   imports: [
     BrowserModule,

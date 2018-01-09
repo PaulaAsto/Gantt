@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('gantt App', () => {
+describe('hon-front App', () => {
   let page: AppPage;
 
   beforeEach(() => {

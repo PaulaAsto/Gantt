@@ -17,7 +17,7 @@ import hon.gant.dao.ProyectoDao;
 import hon.gant.dto.ProyectoDto;
 import hon.gant.ent.Proyecto;
 
-@Path("/apiServices") 
+@Path("/apiProyecto") 
 @Stateless
 @LocalBean
 public class ApiProyecto extends Application{
@@ -26,7 +26,7 @@ public class ApiProyecto extends Application{
 	 ProyectoDao proyectoDao;
 
 	@POST
-	@Path("/allProyect") 
+	@Path("/allProject") 
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Proyecto> r(ProyectoDto filtro) {

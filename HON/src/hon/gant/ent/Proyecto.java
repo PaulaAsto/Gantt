@@ -18,12 +18,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "proyecto")
 @NamedQueries({
-@NamedQuery(name="Proyecto.all", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre) FROM Proyecto p where p.estado= :estado order by p.id")
+@NamedQuery(name="Proyecto.all", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre) FROM Proyecto p where p.estado= :estado order by p.id"),
+@NamedQuery(name="Proyecto.fById", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre, p.estado) FROM Proyecto p where p.id= :id")
 })
 public class Proyecto implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	public static final String ALL="Proyecto.all";
+	public static final String FBYID="Proyecto.fById";
 	
 	@Id
 	@SequenceGenerator(name="PROYECTO_GENERATOR", sequenceName="sec_proyecto", allocationSize = 1, initialValue= 1)
@@ -45,6 +47,12 @@ public class Proyecto implements Serializable{
 	public Proyecto(Long id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
+	}
+	
+	public Proyecto(Long id, String nombre, Integer estado) {
+		this.id = id;
+		this.nombre = nombre;
+		this.estado = estado;
 	}
 
 	public Long getId() {

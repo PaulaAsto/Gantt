@@ -2,6 +2,8 @@ import { Http, Headers, Response, RequestOptions, ResponseContentType} from '@an
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
+import { RutasApiConfig } from '../core/rutasapi.config';
+
 export class ServerParamHttp {
   url: string;
   data: string;
@@ -65,6 +67,7 @@ export class ServerParamHttp {
   }
 
   http():Observable<any>{
+      this.url = RutasApiConfig.ROOT + this.url;
     return this.restCall();
    }
    private log(cad:any)
