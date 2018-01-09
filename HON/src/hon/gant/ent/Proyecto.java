@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @Table(name = "proyecto")
 @NamedQueries({
 @NamedQuery(name="Proyecto.all", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre) FROM Proyecto p where p.estado= :estado order by p.id"),
-@NamedQuery(name="Proyecto.fById", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre, p.estado) FROM Proyecto p where p.id= :id")
+@NamedQuery(name="Proyecto.fById", query="SELECT NEW hon.gant.ent.Proyecto(p.id, p.nombre, p.estado) FROM Proyecto p where p.id= :id and p.estado =:estado")
 })
 public class Proyecto implements Serializable{
 
