@@ -39,4 +39,12 @@ public class ApiTarea extends Application{
 	public List<Tarea> r(TareaDto filtro) {
 		return tareaDao.getAllTasks(filtro);
 	}
+	
+	@POST
+	@Path("/fById") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Tarea fTaskById(TareaDto filtro) {
+		return tareaDao.fTareaById(filtro);
+	}
 }

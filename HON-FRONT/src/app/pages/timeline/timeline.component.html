@@ -15,13 +15,17 @@
                 <accordion-group *ngFor="let task of tasks">
                     <div accordion-heading class="clearfix">
                         {{task.nombre}}
-                        <!-- <span class="badge badge-secondary float-right pull-right">Some HTML here</span> -->
+                        <button class="btn btn-plus float-right pull-right" title="delete task">
+                            <i class="fa fa-trash-o"></i>
+                        </button>
+                        <button class="btn btn-plus float-right pull-right" title="update task" (click)="updateTarea(task.id)">
+                            <i class="fa fa-pencil"></i>
+                        </button>
                     </div>
                     This is just some content to illustrate fancy headings.
                 </accordion-group>
             </accordion>
         </div>
-        <!-- <list-activity></list-activity> -->
     </div>
     <div class="col-lg-9 crono">
         <p>Hola, al mas grande supongo</p>

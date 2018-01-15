@@ -7,7 +7,7 @@ public class TareaDto {
 	
 	private String nombre;
 	
-	private Integer descripcion;
+	private String descripcion;
 	
 	private Integer estado;
 
@@ -36,12 +36,11 @@ public class TareaDto {
 		this.nombre = nombre;
 	}
 
-
-	public Integer getDescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripcion(Integer descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 

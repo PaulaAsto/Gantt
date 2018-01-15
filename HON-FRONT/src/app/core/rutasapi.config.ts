@@ -12,6 +12,7 @@ export class RutasApiConfig {
     /** Task */
     public static C_TASK = '/rest/apiTarea/cTarea';
     public static ALL_TASKS = '/rest/apiTarea/allTarea';
+    public static FBYID_TASK = '/rest/apiTarea/fById';
     
 
     public static PRUEBA = '/rest/apiProyecto/prueba';

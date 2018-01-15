@@ -40,4 +40,12 @@ public class TareaDao {
 		 List<Tarea> lista = q.getResultList();
 		 return lista;
 	 }
+	
+	public Tarea fTareaById(TareaDto filtro) {
+		 TypedQuery<Tarea> q = entityManager.createNamedQuery(Tarea.FBYID, Tarea.class);
+		 q.setParameter("id", filtro.getId());
+		 q.setParameter("estado", Constantes.ESTADO_OK);
+		 List<Tarea> lista = q.getResultList();
+		 return lista.get(Constantes.ELEMENTO_PRIMERO);
+	 }
 }

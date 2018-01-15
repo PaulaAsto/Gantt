@@ -9,6 +9,9 @@
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<jta-data-source>java:/honLocal</jta-data-source>
 		
+		<class>hon.gant.ent.Actividad</class>
+		<class>hon.gant.ent.EstadoGant</class>
+		<class>hon.gant.ent.MiniActividad</class>
 		<class>hon.gant.ent.Proyecto</class>
 		<class>hon.gant.ent.Tarea</class>
 		

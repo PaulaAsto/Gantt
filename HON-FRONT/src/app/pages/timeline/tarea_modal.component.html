@@ -13,13 +13,13 @@
             <i class="fa fa-cube bigicon"></i>
           </span>
           <div class="col-md-10">
-            <input #taskName id="fname" name="name" type="text" placeholder="Nombre" class="form-control"> 
+            <input #taskName id="fname" name="name" type="text" placeholder="Nombre" class="form-control" value={{tarea.nombre}}>
           </div><br><br>
           <span class="col-md-2">
             <i class="fa fa-comment-o bigicon"></i>
           </span>
           <div class="col-md-10">
-            <textarea #taskDescripcion name="comment" type="text" placeholder="Descripcion" class="form-control"></textarea>
+            <textarea #taskDescripcion name="comment" type="text" placeholder="Descripcion" class="form-control" value={{tarea.descripcion}}></textarea>
           </div>
         </div>
       </form>

@@ -1,6 +1,6 @@
 ﻿/*
-Created: 26/12/2017
-Modified: 14/01/2018
+Created: 12/26/2017
+Modified: 1/15/2018
 Model: gantt
 Database: PostgreSQL 9.5
 */
@@ -67,12 +67,12 @@ ALTER TABLE "proyecto" ADD CONSTRAINT "Key1" PRIMARY KEY ("proy_id")
 
 CREATE TABLE "tarea"(
  "tare_id" Bigint NOT NULL,
- "proy_id" Bigint,
+ "proy_id" Bigint NOT NULL,
  "nombre" Character varying(200) NOT NULL,
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
  "color" Character varying(50) NOT NULL,
- "descripcion" Bigint NOT NULL,
+ "descripcion" Character varying(1000) NOT NULL,
  "est" Smallint NOT NULL
 )
 ;
@@ -91,7 +91,7 @@ ALTER TABLE "tarea" ADD CONSTRAINT "Key2" PRIMARY KEY ("tare_id")
 
 CREATE TABLE "actividad"(
  "acti_id" Bigint NOT NULL,
- "tare_id" Bigint,
+ "tare_id" Bigint NOT NULL,
  "nombre" Character varying(256) NOT NULL,
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
@@ -115,8 +115,8 @@ ALTER TABLE "actividad" ADD CONSTRAINT "Key3" PRIMARY KEY ("acti_id")
 
 CREATE TABLE "miniactividad"(
  "mini_acti_id" Bigint NOT NULL,
- "acti_id" Bigint,
- "esta_id" Bigint,
+ "acti_id" Bigint NOT NULL,
+ "esta_id" Bigint NOT NULL,
  "nombre" Character varying(256) NOT NULL,
  "color" Character varying(50) NOT NULL,
  "porcentajeavance" Double precision NOT NULL,

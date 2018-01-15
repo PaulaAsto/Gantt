@@ -5,7 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { DtoProyecto } from '../../dto/dtoproyecto';
+import { DtoTarea } from '../../dto/dtotarea';
 
 import { RutasApiConfig } from '../../core/rutasapi.config';
 import { ConstantesConfig } from '../../core/constantes.config';
@@ -21,7 +21,7 @@ export class TimelineComponent implements OnInit{
   private nombreProject: string;
   private idProj: any;
   bsModalRef: BsModalRef;
-  tasks:DtoProyecto[] = [];
+  tasks:DtoTarea[] = [];
 
   constructor(private _util: Util,  private modalService: BsModalService, 
     private route: ActivatedRoute){}
@@ -37,6 +37,11 @@ export class TimelineComponent implements OnInit{
     this.bsModalRef.content.idProj = this.idProj;
   }
 
+  private updateTarea(idTarea: number): void{
+    this.bsModalRef = this.modalService.show(TareaModalComponent);
+    this.bsModalRef.content.title = 'Update Task';
+  }
+
   private loadProjectTimeline():void{
     let url = RutasApiConfig.FBYID_PROJECT;
     let urlTask = RutasApiConfig.ALL_TASKS;
@@ -49,7 +54,7 @@ export class TimelineComponent implements OnInit{
         this._util.http({url: urlTask, data: dtoTask}).subscribe(
           data => {
             for (let i = 0; i < data.length; i++) {
-              let proj = new DtoProyecto(data[i].id,data[i].nombre);
+              let proj = new DtoTarea(data[i].id,data[i].nombre,'');
               this.tasks.push(proj);
             }
           },

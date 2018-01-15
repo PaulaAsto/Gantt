@@ -23,12 +23,14 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "tarea")
 @NamedQueries({
-	@NamedQuery(name="Tarea.all", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre) FROM Tarea t INNER JOIN t.proyecto p where p.id = :idProyecto and t.estado= :estado and p.estado = :estado order by t.id")
+	@NamedQuery(name="Tarea.all", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre) FROM Tarea t INNER JOIN t.proyecto p where p.id = :idProyecto and t.estado= :estado and p.estado = :estado order by t.id"),
+	@NamedQuery(name="Tarea.fById", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre, t.descripcion) FROM Tarea t where t.id= :id and t.estado =:estado"),
 })
 public class Tarea implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	public static final String ALL="Tarea.all";
+	public static final String FBYID="Tarea.fById";
 
 	@Id
 	@SequenceGenerator(name="TAREA_GENERATOR", sequenceName="sec_tarea", allocationSize = 1, initialValue= 1)
@@ -55,7 +57,7 @@ public class Tarea implements Serializable{
 	private String color;
 
 	@Column(name="descripcion")
-	private Integer descripcion;
+	private String descripcion;
 
 	@Column(name="est")
 	private Integer estado;
@@ -68,6 +70,12 @@ public class Tarea implements Serializable{
 	public Tarea(Long id, String nombre) {
 		this.id = id;
 		this.nombre = nombre;
+	}
+	
+	public Tarea(Long id, String nombre, String descripcion) {
+		this.id = id;
+		this.nombre = nombre;
+		this.descripcion = descripcion;
 	}
 
 	public Long getId() {
@@ -117,13 +125,12 @@ public class Tarea implements Serializable{
 	public void setColor(String color) {
 		this.color = color;
 	}
-	
 
-	public Integer getDescripcion() {
+	public String getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripcion(Integer descripcion) {
+	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
 
