@@ -1,6 +1,6 @@
 ﻿/*
 Created: 26/12/2017
-Modified: 29/12/2017
+Modified: 14/01/2018
 Model: gantt
 Database: PostgreSQL 9.5
 */
@@ -72,6 +72,7 @@ CREATE TABLE "tarea"(
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
  "color" Character varying(50) NOT NULL,
+ "descripcion" Bigint NOT NULL,
  "est" Smallint NOT NULL
 )
 ;
@@ -95,8 +96,6 @@ CREATE TABLE "actividad"(
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
  "color" Character varying(50) NOT NULL,
- "horainicio" Timestamp NOT NULL,
- "horafin" Timestamp NOT NULL,
  "descripcion" Character varying(1000) NOT NULL,
  "est" Smallint NOT NULL
 )

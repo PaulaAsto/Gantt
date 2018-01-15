@@ -2,8 +2,11 @@
   <div class="row cab">
     <h1 class="title">{{title}}</h1>
   </div>
-  <project></project>
+  <router-outlet></router-outlet>
+  <!--  -->
   <div class="row footer">
+    <a [routerLink]="['project']"><i class="fa fa-folder-open color-icon"></i></a>
     <p>By Honami</p>
   </div>
 </div>
+

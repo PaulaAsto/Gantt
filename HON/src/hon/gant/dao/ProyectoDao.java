@@ -11,6 +11,7 @@ import javax.persistence.TypedQuery;
 import hon.gant.dto.ProyectoDto;
 import hon.gant.ent.Proyecto;
 import hon.gant.util.Constantes;
+import hon.gant.util.Funciones;
 
 @Stateless
 public class ProyectoDao {
@@ -58,5 +59,21 @@ public class ProyectoDao {
 		 query.setParameter("id", filtro.getId());
 		 query.setParameter("estado", Constantes.ESTADO_ANULADO);
 		 query.executeUpdate();
+	 }
+	 
+	 public Proyecto fProjectByName(ProyectoDto filtro) {
+		 TypedQuery<Proyecto> q = entityManager.createNamedQuery(Proyecto.FBYNOMBRE, Proyecto.class);
+		 q.setParameter("nombre", filtro.getNombre());
+		 q.setParameter("estado", Constantes.ESTADO_OK);
+		 List<Proyecto> lista = q.getResultList();
+		 return !Funciones.esListaVacia(lista) ? lista.get(Constantes.ELEMENTO_PRIMERO) : null;
+	 }
+	 
+	 public Proyecto fProjectById(ProyectoDto filtro) {
+		 TypedQuery<Proyecto> q = entityManager.createNamedQuery(Proyecto.FBYID, Proyecto.class);
+		 q.setParameter("id", filtro.getId());
+		 q.setParameter("estado", Constantes.ESTADO_OK);
+		 List<Proyecto> lista = q.getResultList();
+		 return lista.get(Constantes.ELEMENTO_PRIMERO);
 	 }
 }

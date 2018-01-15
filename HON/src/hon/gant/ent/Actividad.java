@@ -48,14 +48,6 @@ private static final long serialVersionUID = 1L;
 	@Column(name = "color")
 	private String color; 
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "horainicio")
-	private Date horaInicio; 
-	
-	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name = "horafin")
-	private Date horaFin; 
-	
 	@Column(name = "descripcion")
 	private String descripcion; 
 	
@@ -111,22 +103,6 @@ private static final long serialVersionUID = 1L;
 
 	public void setColor(String color) {
 		this.color = color;
-	}
-
-	public Date getHoraInicio() {
-		return horaInicio;
-	}
-
-	public void setHoraInicio(Date horaInicio) {
-		this.horaInicio = horaInicio;
-	}
-
-	public Date getHoraFin() {
-		return horaFin;
-	}
-
-	public void setHoraFin(Date horaFin) {
-		this.horaFin = horaFin;
 	}
 
 	public String getDescripcion() {

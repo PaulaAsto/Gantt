@@ -1,0 +1,44 @@
+<div class="row">
+    <fieldset>
+        <legend class="header">{{nombreProject}}</legend>
+    </fieldset>
+</div>
+<div class="row">
+    <div class="col-lg-3 acti">
+        <div class="divContent">
+            <button class="btn btn-plus" (click)="addTarea()">
+                <i class="fa fa-plus"></i> Add Task
+            </button>
+        </div>
+        <div class="divContent">
+            <accordion>
+                <accordion-group heading="Static Header, initially expanded">
+                    This content is straight in the template.
+                </accordion-group>
+                <accordion-group #group>
+                    <div accordion-heading class="clearfix">
+                        I can have markup, too!
+                        <span class="badge badge-secondary float-right pull-right">Some HTML here</span>
+                    </div>
+                    This is just some content to illustrate fancy headings.
+                </accordion-group>
+                <accordion-group heading="Group with isOpenChange event listener">
+                    <progressbar class="progress" [value]="55" [max]="100"></progressbar>
+                </accordion-group>
+                <accordion-group heading="Another group">
+                    <p>Some content</p>
+                </accordion-group>
+                <accordion-group >
+                    <div accordion-heading class="clearfix">
+                        <progressbar class="progress" [value]="55" [max]="100"></progressbar>
+                    </div>
+                    <progressbar class="progress" [value]="34" [max]="100"></progressbar>
+                </accordion-group>
+            </accordion>
+        </div>
+        <!-- <list-activity></list-activity> -->
+    </div>
+    <div class="col-lg-9 crono">
+        <p>Hola, al mas grande supongo</p>
+    </div>
+</div>

@@ -48,6 +48,9 @@ private static final long serialVersionUID = 1L;
 	@Column(name="color")
 	private String color;
 	
+	@Column(name="descripcion")
+	private String descripcion;
+	
 	@Column(name="est")
 	private Integer estado;
 	
@@ -100,6 +103,14 @@ private static final long serialVersionUID = 1L;
 
 	public void setColor(String color) {
 		this.color = color;
+	}
+
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
 	}
 
 	public Integer getEstado() {
