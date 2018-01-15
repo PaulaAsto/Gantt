@@ -4,7 +4,7 @@ import { Util } from '../../core/util';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { BsModalRef } from 'ngx-bootstrap/modal/bs-modal-ref.service';
 
-import { DtoProyecto } from '../../dto/dtoproyecto'
+import { DtoProyecto } from '../../dto/dtoproyecto';
 
 import { error } from 'util';
 import { RutasApiConfig } from '../../core/rutasapi.config';

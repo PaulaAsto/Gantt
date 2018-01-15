@@ -13,13 +13,13 @@
             <i class="fa fa-cube bigicon"></i>
           </span>
           <div class="col-md-10">
-            <input id="fname" name="name" type="text" placeholder="Nombre" class="form-control"> 
+            <input #taskName id="fname" name="name" type="text" placeholder="Nombre" class="form-control"> 
           </div><br><br>
           <span class="col-md-2">
             <i class="fa fa-comment-o bigicon"></i>
           </span>
           <div class="col-md-10">
-            <textarea name="comment" type="text" placeholder="Descripcion" class="form-control"></textarea>
+            <textarea #taskDescripcion name="comment" type="text" placeholder="Descripcion" class="form-control"></textarea>
           </div>
         </div>
       </form>
@@ -28,5 +28,5 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
-  <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Save</button>
+  <button type="button" class="btn btn-default" (click)="cTarea(taskName.value, taskDescripcion.value)">Save</button>
 </div>

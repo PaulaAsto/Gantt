@@ -8,28 +8,16 @@ import { ConstantesConfig } from '../../core/constantes.config';
 import { AppComponent } from '../../app.component';
 
 @Component({
-  selector: 'tarea-modal',
-  templateUrl: './tarea_modal.component.html',
+  selector: 'actividad-modal',
+  templateUrl: './actividad_modal.component.html',
   styleUrls: ['./timeline.component.less']
 })
 @Injectable()
-export class TareaModalComponent {
+export class ActividadModalComponent {
   title: string;
-  idProj: number;
+  idTask: number;
+  daterangepickerModel: Date[];
 
   constructor(public bsModalRef: BsModalRef, private _util: Util) {}
 
-  private cTarea(taskName: string, taskDescripcion: number):void{
-    let url = RutasApiConfig.C_TASK;
-    let dto = { nombre: taskName, descripcion: taskDescripcion }
-    this._util.http({url: url, data: dto}).subscribe(
-      data=>{
-        this._util.log(data);
-        this.bsModalRef.hide();
-      },
-      error=>{
-        this._util.log(error);
-      }
-    );
-  }
 }

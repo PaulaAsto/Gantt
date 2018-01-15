@@ -12,27 +12,12 @@
         </div>
         <div class="divContent">
             <accordion>
-                <accordion-group heading="Static Header, initially expanded">
-                    This content is straight in the template.
-                </accordion-group>
-                <accordion-group #group>
+                <accordion-group *ngFor="let task of tasks">
                     <div accordion-heading class="clearfix">
-                        I can have markup, too!
-                        <span class="badge badge-secondary float-right pull-right">Some HTML here</span>
+                        {{task.nombre}}
+                        <!-- <span class="badge badge-secondary float-right pull-right">Some HTML here</span> -->
                     </div>
                     This is just some content to illustrate fancy headings.
-                </accordion-group>
-                <accordion-group heading="Group with isOpenChange event listener">
-                    <progressbar class="progress" [value]="55" [max]="100"></progressbar>
-                </accordion-group>
-                <accordion-group heading="Another group">
-                    <p>Some content</p>
-                </accordion-group>
-                <accordion-group >
-                    <div accordion-heading class="clearfix">
-                        <progressbar class="progress" [value]="55" [max]="100"></progressbar>
-                    </div>
-                    <progressbar class="progress" [value]="34" [max]="100"></progressbar>
                 </accordion-group>
             </accordion>
         </div>

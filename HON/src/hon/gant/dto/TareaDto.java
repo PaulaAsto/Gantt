@@ -7,7 +7,9 @@ public class TareaDto {
 	
 	private String nombre;
 	
-	private String descripcion;
+	private Integer descripcion;
+	
+	private Integer estado;
 
 	public Long getId() {
 		return id;
@@ -34,13 +36,23 @@ public class TareaDto {
 		this.nombre = nombre;
 	}
 
-	public String getDescripcion() {
+
+	public Integer getDescripcion() {
 		return descripcion;
 	}
 
-	public void setDescripcion(String descripcion) {
+	public void setDescripcion(Integer descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public Integer getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Integer estado) {
+		this.estado = estado;
+	}
+	
 	
 	
 

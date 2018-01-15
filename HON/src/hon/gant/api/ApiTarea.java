@@ -1,5 +1,7 @@
 package hon.gant.api;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -12,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 
 import hon.gant.dao.TareaDao;
 import hon.gant.dto.TareaDto;
+import hon.gant.ent.Tarea;
 
 @Path("/apiTarea") 
 @Stateless
@@ -27,5 +30,13 @@ public class ApiTarea extends Application{
 	@Produces(MediaType.APPLICATION_JSON)
 	public void c(TareaDto filtro) {
 		tareaDao.cTarea(filtro);
+	}
+	
+	@POST
+	@Path("/allTarea") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Tarea> r(TareaDto filtro) {
+		return tareaDao.getAllTasks(filtro);
 	}
 }
