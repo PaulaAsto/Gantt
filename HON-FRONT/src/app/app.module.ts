@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BsDropdownModule, ModalModule , AlertModule, 
-  AccordionModule, ProgressbarModule, BsDatepickerModule } from 'ngx-bootstrap';
+  AccordionModule, ProgressbarModule } from 'ngx-bootstrap';
 import { HttpModule } from '@angular/http';
+import { NgxMyDatePickerModule } from 'ngx-mydatepicker';
 
 import { AppComponent } from './app.component';
 import { Util } from './core/util';
@@ -30,7 +31,7 @@ import { AppRoutingModule } from './/app-routing.module';
     AlertModule.forRoot(),
     AccordionModule.forRoot(),
     ProgressbarModule.forRoot(),
-    BsDatepickerModule.forRoot(),
+    NgxMyDatePickerModule.forRoot(),
     HttpModule,
     AppRoutingModule
   ],
