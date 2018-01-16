@@ -10,6 +10,7 @@ import { DtoTarea } from '../../dto/dtotarea';
 import { RutasApiConfig } from '../../core/rutasapi.config';
 import { ConstantesConfig } from '../../core/constantes.config';
 import { TareaModalComponent } from './tarea_modal.component';
+import { ActividadModalComponent } from './actividad_modal.component';
 import { error } from 'util';
 
 @Component({
@@ -40,6 +41,11 @@ export class TimelineComponent implements OnInit{
   private updateTarea(idTarea: number): void{
     this.bsModalRef = this.modalService.show(TareaModalComponent);
     this.bsModalRef.content.title = 'Update Task';
+  }
+
+  private createActivity(idTarea: number): void{
+    this.bsModalRef = this.modalService.show(ActividadModalComponent);
+    this.bsModalRef.content.title = 'Create Activity';
   }
 
   private loadProjectTimeline():void{

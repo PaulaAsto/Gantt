@@ -16,7 +16,7 @@ import { AppComponent } from '../../app.component';
 export class ActividadModalComponent {
   title: string;
   idTask: number;
-  daterangepickerModel: Date[];
+  // daterangepickerModel: Date[];
 
   constructor(public bsModalRef: BsModalRef, private _util: Util) {}
 

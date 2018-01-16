@@ -11,6 +11,7 @@ import { ProyectComponent } from './pages/project/project.component';
 import { ProjectModalComponent } from './pages/project/project_modal.component';
 import { TimelineComponent } from './pages/timeline/timeline.component';
 import { TareaModalComponent } from './pages/timeline/tarea_modal.component';
+import { ActividadModalComponent } from './pages/timeline/actividad_modal.component';
 import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
@@ -19,7 +20,8 @@ import { AppRoutingModule } from './/app-routing.module';
     ProyectComponent,
     ProjectModalComponent,
     TimelineComponent,
-    TareaModalComponent
+    TareaModalComponent,
+    ActividadModalComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { AppRoutingModule } from './/app-routing.module';
   ],
   entryComponents: [
     ProjectModalComponent,
-    TareaModalComponent
+    TareaModalComponent,
+    ActividadModalComponent
   ],
   bootstrap: [AppComponent]
 })
