@@ -1,6 +1,6 @@
 ﻿/*
 Created: 12/26/2017
-Modified: 1/15/2018
+Modified: 1/26/2018
 Model: gantt
 Database: PostgreSQL 9.5
 */
@@ -53,7 +53,7 @@ CREATE SEQUENCE "sec_estadogant"
 
 CREATE TABLE "proyecto"(
  "proy_id" Bigint NOT NULL,
- "nombre" Character varying(80) NOT NULL,
+ "nombre" Character varying(520) NOT NULL,
  "est" Smallint NOT NULL
 )
 ;
@@ -68,7 +68,7 @@ ALTER TABLE "proyecto" ADD CONSTRAINT "Key1" PRIMARY KEY ("proy_id")
 CREATE TABLE "tarea"(
  "tare_id" Bigint NOT NULL,
  "proy_id" Bigint NOT NULL,
- "nombre" Character varying(200) NOT NULL,
+ "nombre" Character varying(260) NOT NULL,
  "fechainicio" Timestamp NOT NULL,
  "fechafin" Timestamp NOT NULL,
  "color" Character varying(50) NOT NULL,
