@@ -97,5 +97,13 @@ public class ApiTarea extends Application{
 	public void u(TareaDto filtro) {
 		tareaDao.uTarea(filtro);
 	}
+	
+	@POST
+	@Path("/uColorTarea") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void uColor(TareaDto filtro) {
+		tareaDao.uColorTarea(filtro);
+	}
 
 }

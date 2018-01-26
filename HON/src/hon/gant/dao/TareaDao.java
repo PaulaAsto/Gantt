@@ -99,4 +99,17 @@ public class TareaDao {
 		query.setParameter("descripcion", filtro.getDescripcion());
 		query.executeUpdate();
 	}
+	
+	public void uColorTarea(TareaDto filtro) {
+		StringBuilder jpaql = new StringBuilder();
+
+		jpaql.append(" UPDATE Tarea t SET t.color = :color");
+		jpaql.append(" WHERE t.id = :id ");
+
+		Query query = entityManager.createQuery(jpaql.toString());
+		query.setParameter("id", filtro.getId());
+		query.setParameter("color", filtro.getColor());
+		query.executeUpdate();
+	}
+
 }

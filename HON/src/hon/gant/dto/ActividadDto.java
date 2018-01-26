@@ -16,6 +16,8 @@ public class ActividadDto {
 	
 	private Date fechaFin;
 	
+	private String color;
+	
 	public Long getId() {
 		return id;
 	}
@@ -62,6 +64,14 @@ public class ActividadDto {
 
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
 	}
 
 }

@@ -16,6 +16,8 @@ public class TareaDto {
 	private Date fechaInicio;
 	
 	private Date fechaFin;
+	
+	private String color;
 
 	public Long getId() {
 		return id;
@@ -74,6 +76,13 @@ public class TareaDto {
 		this.fechaFin = fechaFin;
 	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
 	
 	
 	

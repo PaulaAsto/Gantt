@@ -96,4 +96,12 @@ public class ApiActividad extends Application {
 		catch(Exception e) {}
 		return fechaMinAndMax;
 	}
+	
+	@POST
+	@Path("/uColorActividad") 
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public void uColor(ActividadDto filtro) {
+		actividadDao.uColorActividad(filtro);
+	}
 }

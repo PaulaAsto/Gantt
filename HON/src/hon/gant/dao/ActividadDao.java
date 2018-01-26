@@ -95,5 +95,18 @@ public class ActividadDao {
 		List<Actividad> lista = q.getResultList();
 		return lista;
 	}
+	
+	public void uColorActividad(ActividadDto filtro) {
+		StringBuilder jpaql = new StringBuilder();
+
+		jpaql.append(" UPDATE Actividad a SET a.color = :color ");
+		jpaql.append(" WHERE a.id = :id ");
+
+		Query query = entityManager.createQuery(jpaql.toString());
+		query.setParameter("id", filtro.getId());
+		query.setParameter("color", filtro.getColor());
+		query.executeUpdate();
+	}
+
 
 }

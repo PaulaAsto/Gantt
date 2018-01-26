@@ -44,6 +44,35 @@ export class TimelineComponent implements OnInit{
       this.loadProjectTimeline();
     }
     
+    private onChangeColor(color: string, idTask: number): void{
+      let url = RutasApiConfig.U_COLOR_TASK;
+      let dto = {id : idTask,
+      color: color}
+      this._util.http({url: url, data: dto}).subscribe(
+        data => {
+          this._util.log(data);
+        },
+        error => {
+          this._util.log(error);
+        }
+      )
+      
+    }
+    private onChangeColorAct(color: string, idActividad: number): void{
+      let url = RutasApiConfig.U_COLOR_ACTIVITY;
+      let dto = {id : idActividad,
+      color: color}
+      this._util.http({url: url, data: dto}).subscribe(
+        data => {
+          this._util.log(data);
+        },
+        error => {
+          this._util.log(error);
+        }
+      )
+      
+    }
+
     private addTarea(): void{
       this.bsModalRef = this.modalService.show(TareaModalComponent);
       this.bsModalRef.content.title = 'Create Task';

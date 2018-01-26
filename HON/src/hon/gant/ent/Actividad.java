@@ -23,7 +23,7 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "actividad")
 @NamedQueries({
-	@NamedQuery(name="Actividad.all", query="SELECT NEW hon.gant.ent.Actividad(a.id, a.nombre, a.fechaInicio, a.fechaFin) FROM Actividad a INNER JOIN a.tarea t where t.id = :idTarea and t.estado= :estado and a.estado = :estado order by a.id"),
+	@NamedQuery(name="Actividad.all", query="SELECT NEW hon.gant.ent.Actividad(a.id, a.nombre, a.fechaInicio, a.fechaFin, a.color) FROM Actividad a INNER JOIN a.tarea t where t.id = :idTarea and t.estado= :estado and a.estado = :estado order by a.id"),
 	@NamedQuery(name="Actividad.fById", query="SELECT NEW hon.gant.ent.Actividad(a.id, a.nombre) FROM Actividad a where a.id= :id and a.estado =:estado"),
 	@NamedQuery(name="Actividad.fWithFechasById", query="SELECT NEW hon.gant.ent.Actividad(a.id, a.nombre, a.descripcion) FROM Actividad a where a.id= :id and a.estado =:estado"),
 	@NamedQuery(name="Actividad.allFechas", query="SELECT NEW hon.gant.ent.Actividad(a.id, a.fechaInicio, a.fechaFin) FROM Actividad a INNER JOIN a.tarea t where t.id = :idTarea and t.estado= :estado and a.estado = :estado order by a.id")
@@ -72,11 +72,12 @@ public class Actividad implements Serializable {
 	public Actividad() {}
 
 	//Actividad.all
-	public Actividad(Long id, String nombre, Date fechaInicio, Date fechaFin) {
+	public Actividad(Long id, String nombre, Date fechaInicio, Date fechaFin, String color) {
 		this.id = id;
 		this.nombre = nombre;
 		this.fechaInicio = fechaInicio;
 		this.fechaFin = fechaFin;
+		this.color = color;
 	}
 
 	//Actividad.fById

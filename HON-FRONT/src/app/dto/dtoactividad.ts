@@ -51,4 +51,5 @@ export class DtoActividad {
 	public set $dias(value: number) {
 		this.id = value;
 	}
+
 }

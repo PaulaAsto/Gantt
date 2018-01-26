@@ -17,6 +17,7 @@ export class RutasApiConfig {
     public static U_FECHA_TASK = '/rest/apiTarea/uFechaTarea';
     public static DAYS_MIN_MAX_PROY = '/rest/apiTarea/daysMinAndMaxByIdProyect';
     public static U_TASK = '/rest/apiTarea/uTarea';
+    public static U_COLOR_TASK = '/rest/apiTarea/uColorTarea';
     
     /** Acivity */
     public static C_ACTIVITY = '/rest/apiActividad/cActividad';
@@ -26,6 +27,7 @@ export class RutasApiConfig {
     public static D_ACTIVITY = '/rest/apiActividad/dActividad';
     public static FWITHFECHASBYID_ACTIVITY = '/rest/apiActividad/fWithFechasById';
     public static DAYS_MIN_MAX_TASK = '/rest/apiActividad/daysMinAndMaxByIdTarea';
+    public static U_COLOR_ACTIVITY = '/rest/apiActividad/uColorActividad';
     
     
     /** MiniAcivity */

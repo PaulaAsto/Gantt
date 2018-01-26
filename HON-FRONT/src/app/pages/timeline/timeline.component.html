@@ -12,8 +12,8 @@
         </div>
         <div class="divContent">
             <accordion [closeOthers]="true">
-                <accordion-group *ngFor="let task of tasks">
-                    <div accordion-heading class="clearfix" (click)="loadActivities(task.id)">
+                <accordion-group *ngFor="let task of tasks" [style.background]="task.color">
+                    <div accordion-heading class="clearfix" (click)="loadActivities(task.id)" >
                         {{task.nombre}}
                         <button class="btn btn-transparente float-right pull-right" title="delete task" (click)="delete(task.id)">
                             <i class="fa fa-trash-o"></i>
@@ -27,12 +27,12 @@
                             <i class="fa fa-pencil"></i>
                         </button>
                         <span class="float-right pull-right">&nbsp;</span>
-                        <button class="btn btn-transparente float-right pull-right pickco" [(colorPicker)]="color" [style.background]="task.color"></button>
+                        <button class="btn btn-transparente float-right pull-right pickco"
+                         [(colorPicker)]="color" (colorPickerChange)="onChangeColor($event, task.id);task.color=$event" [style.background]="task.color"></button>
                     </div>
                     <ul class="project">
                         <li *ngFor="let act of actividades">
                             <span class="badge">{{act.id}}</span> {{act.nombre}}
-                            <button class="go dcolor" [(colorPicker)]="color" [style.background]="color"></button>
                             <button class="go dupdate" title="update activity" (click)="updateActivity(act.id, task.id)"><i class="fa fa-pencil"></i></button>
                             <button class="go ddelete" title="delete activity" (click)="deleteAct(act.id, task.id)" ><i class="fa fa-trash-o"></i></button>
                             <button class="go dgo" title="go mini activity"
@@ -48,9 +48,10 @@
         </div>
         <div class="divContent">
             <accordion [closeOthers]="true">
-                <accordion-group *ngFor="let task of tasks">
+                <accordion-group *ngFor="let task of tasks" [style.background]="task.color">
                     <div accordion-heading class="clearfix" (click)="loadActivities(task.id)">
-                        <progressbar class="progress" [max]="task.dias" [value]="task.dias" type="success" data-placement="top" data-toggle="tooltip" title="{{task.fechaini}} - {{task.fechafin}}">
+                        <progressbar class="progress" [max]="task.dias" [value]="task.dias" type="success" data-placement="top" data-toggle="tooltip" 
+                        title="{{task.fechaini}} - {{task.fechafin}}">
                             <i>{{task.dias}} días</i>
                         </progressbar>
                     </div>
