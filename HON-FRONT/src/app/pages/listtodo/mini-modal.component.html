@@ -13,22 +13,17 @@
                         <i class="fa fa-cube bigicon"></i>
                     </span>
                     <div class="col-md-10">
-                        <input #ActiName id="fname" name="name" type="text" placeholder="Nombre" class="form-control" value="{{nombre}}"> 
+                        <input #MiniName id="fname" name="name" type="text" placeholder="Nombre" class="form-control"> 
                     </div>
                     <br><br>
                     <span class="col-md-2">
                         <i class="fa fa-calendar bigicon"></i>
                     </span>
                     <div class="col-md-10">
-                        <my-date-range-picker name="mydaterange" placeholder="Date Range" [selDateRange]="selectedDateRange" [options]="myDateRangePickerOptions" 
-                        (dateRangeChanged)="onDateRangeChanged($event)" required></my-date-range-picker>
-                    </div> 
-                    <br><br>
-                    <span class="col-md-2">
-                        <i class="fa fa-comment-o bigicon"></i>
-                    </span>
-                    <div class="col-md-10">
-                        <textarea #ActiDescripcion name="comment" type="text" placeholder="Descripcion" class="form-control" value="{{descripcion}}"></textarea>
+                        <select #select class="form-control" id="exampleFormControlSelect1">
+                            <option selected hidden>Select state</option>
+                            <option *ngFor="let estg of listEstadoGant" [value]="estg.id"> {{estg.nombre}}</option>
+                        </select>
                     </div>
                 </div>
             </form>
@@ -37,5 +32,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">Cancel</button>
-    <button type="button" class="btn btn-default" (click)="accionActivity(ActiName.value, ActiDescripcion.value)">Save</button>
+    <button type="button" class="btn btn-default" (click)="createMini(MiniName.value, select.value)">Save</button>
 </div>

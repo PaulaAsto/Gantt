@@ -1,0 +1,30 @@
+<div class="row">
+    <fieldset>
+        <legend class="header">{{nombreAct}}</legend>
+    </fieldset>
+</div>
+<div class="row">
+    <div class="divContent">
+        <button class="btn btn-plus" (click)="addMini()">
+            <i class="fa fa-plus"></i> Add List of {{nombreAct}}
+        </button>
+    </div>
+</div>
+<div class="row">
+    <div class="card col-sm-3" *ngFor="let estg of listEstadoGant">
+        <div class="card-header">
+            <span>{{estg.id}}. {{estg.nombre}} </span>
+        </div>
+        <div class="card-content scroll-list" droppable (onDrop)="onItemDrop($event, estg.id)">
+        <div class="list-group">
+            <li class="list-group-item list-group-item-action list-group-item-success"  draggable *ngFor="let item of estg.mini" 
+            [dragData]="item">
+                {{item.nombre}} 
+                <button class="btn btn-delete float-right pull-right" title="delete mini" (click)="delete(item.id)">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </li>  
+        </div>
+    </div>
+</div>
+</div>

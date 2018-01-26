@@ -1,5 +1,7 @@
 package hon.gant.dto;
 
+import java.util.Date;
+
 public class ActividadDto {
 	
 	private Long id;
@@ -9,6 +11,10 @@ public class ActividadDto {
 	private String nombre;
 	
 	private String descripcion;
+	
+	private Date fechaInicio;
+	
+	private Date fechaFin;
 	
 	public Long getId() {
 		return id;
@@ -42,7 +48,20 @@ public class ActividadDto {
 		this.descripcion = descripcion;
 	}
 
-	
-	
-	
+	public Date getFechaInicio() {
+		return fechaInicio;
+	}
+
+	public void setFechaInicio(Date fechaInicio) {
+		this.fechaInicio = fechaInicio;
+	}
+
+	public Date getFechaFin() {
+		return fechaFin;
+	}
+
+	public void setFechaFin(Date fechaFin) {
+		this.fechaFin = fechaFin;
+	}
+
 }

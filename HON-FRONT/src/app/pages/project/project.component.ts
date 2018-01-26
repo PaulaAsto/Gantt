@@ -50,60 +50,103 @@ export class ProyectComponent implements OnInit{
     );
   }
   
-  private delete(identificador: number): void {
-    this._util.log(identificador);
+  private delete(identificador: number): void { 
+    let self = this;
+    swal({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, cancel!'
+    }).then(function () {
+      self.deleteProyect(identificador);
+    }, function (dismiss) {
+      if (dismiss === 'cancel') {
+        swal(
+          'Cancelled',
+          'Your project is safe :)',
+          'error'
+        )                
+      }
+    })      
+  }
+  
+  private deleteProyect(identificador: number){
     let url = RutasApiConfig.D_PROJECT;
-    let dto = { id: identificador}
+    let dto = { id: identificador};
     this._util.http({url: url, data: dto}).subscribe(
       data => {
+        swal(
+          'Deleted!',
+          'Your project has been deleted.',
+          'success'
+        )
         this.loadProjects();
       },
       error => {
+        swal(
+          'Error',
+          'Your project can not be deleted',
+          'error'
+        ) 
         this._util.log(error);
-      }
-    )
-  }
-  
-  private update(identificador:number, name:string): void{
-    this.bsModalRef = this.modalService.show(ProjectModalComponent);
-    this.bsModalRef.content.title = 'Update Project';
-    this.bsModalRef.content.id = identificador;
-    this.bsModalRef.content.name = name;
-  }
-  
-  private crear(nombreProjectNew: string): void{
-    let url = RutasApiConfig.C_PROJECT;
-    let url2 = RutasApiConfig.FBYNOMBRE_PROJECT;
-    let dto = { nombre: nombreProjectNew }
-    this._util.http({url: url2, data: dto}).subscribe(
-      data => {
-        if(data.id == null){
-          this._util.http({url: url, data: dto}).subscribe(
-            data=>{
-              this._util.http({url: url2, data: dto}).subscribe(
-                data => {
-                  let id = data.id;
-                  this.router.navigate(['project/timeline/' + id]);
-                },
-                error => {
-                  this._util.log(error);
-                }
-              )
-            },
-            error=>{
-              this._util.log(error);
-            }
-          );
-        }
-        else{
-          swal('Oops...', 'Ya existe un proyecto con ese nombre!', 'error')
-        }
-      },
-      error =>{
-        this._util.log(error);
-      }
-      
-    );
+      })
+    }
     
+    
+    private update(identificador:number, name:string): void{
+      this.bsModalRef = this.modalService.show(ProjectModalComponent);
+      this.bsModalRef.content.title = 'Update Project';
+      this.bsModalRef.content.id = identificador;
+      this.bsModalRef.content.name = name;
+      this.bsModalRef.content.onClose = () => {
+        this.loadProjects();
+        this.bsModalRef.hide();
+      };
+    }
+    
+    private crear(nombreProjectNew: string): void{
+      let url = RutasApiConfig.C_PROJECT;
+      let url2 = RutasApiConfig.FBYNOMBRE_PROJECT;
+      let dto = { nombre: nombreProjectNew }
+      this._util.http({url: url2, data: dto}).subscribe(
+        data => {
+          if(data.id == null){
+            this._util.http({url: url, data: dto}).subscribe(
+              data=>{
+                this._util.http({url: url2, data: dto}).subscribe(
+                  data => {
+                    let id = data.id;
+                    swal(
+                      'Created!',
+                      'Your project has been created.',
+                      'success'
+                    )
+                    this.router.navigate(['project/timeline/' + id]);
+                  },
+                  error => {
+                    this._util.log(error);
+                  }
+                )
+              },
+              error=>{
+                this._util.log(error);
+              }
+            );
+          }
+          else{
+            swal('Oops...', 'Ya existe un proyecto con ese nombre!', 'error')
+          }
+        },
+        error =>{
+          this._util.log(error);
+        }
+        
+      );
+      
+    }
   }
-}
+  

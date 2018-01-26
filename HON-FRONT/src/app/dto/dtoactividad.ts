@@ -1,20 +1,16 @@
-export class DtoTarea {
+export class DtoActividad {
     private id: number;
-    private nombre: string;
-	private descripcion: string;
+	private nombre: string;
 	private fechaini: Date;
 	private fechafin: Date;
 	private dias: number;
-	private color: string;
 
-    constructor(id: number, nombre: string, descripcion: string, fechaini: Date, fechafin: Date, dias: number, color: string){
+    constructor(id: number, nombre: string, fechaini: Date, fechafin: Date, dias: number){
         this.id = id;
-        this.nombre = nombre;
-		this.descripcion = descripcion;
+		this.nombre = nombre;
 		this.fechaini = fechaini;
 		this.fechafin = fechafin;
 		this.dias = dias;
-		this.color = color;
     }
     public get $id(): number {
 		return this.id;
@@ -30,14 +26,6 @@ export class DtoTarea {
 
 	public set $nombre(value: string) {
 		this.nombre = value;
-    }
-    
-    public get $descripcion(): string {
-		return this.descripcion;
-	}
-
-	public set $descripcion(value: string) {
-		this.descripcion = value;
 	}
 
 	public get $fechaini(): Date {
@@ -63,12 +51,4 @@ export class DtoTarea {
 	public set $dias(value: number) {
 		this.id = value;
 	}
-
-	public get $color(): string {
-		return this.color;
-	}
-
-	public set $color(value: string) {
-		this.color = value;
-    }
 }

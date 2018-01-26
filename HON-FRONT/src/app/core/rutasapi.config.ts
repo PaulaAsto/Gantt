@@ -13,7 +13,28 @@ export class RutasApiConfig {
     public static C_TASK = '/rest/apiTarea/cTarea';
     public static ALL_TASKS = '/rest/apiTarea/allTarea';
     public static FBYID_TASK = '/rest/apiTarea/fById';
+    public static D_TASK = '/rest/apiTarea/dTask';
+    public static U_FECHA_TASK = '/rest/apiTarea/uFechaTarea';
+    public static DAYS_MIN_MAX_PROY = '/rest/apiTarea/daysMinAndMaxByIdProyect';
+    public static U_TASK = '/rest/apiTarea/uTarea';
     
-
-    public static PRUEBA = '/rest/apiProyecto/prueba';
+    /** Acivity */
+    public static C_ACTIVITY = '/rest/apiActividad/cActividad';
+    public static ALL_ACTIVITIES = '/rest/apiActividad/allActividad';
+    public static FBYID_ACTIVITY = '/rest/apiActividad/fById';
+    public static U_ACTIVITY = '/rest/apiActividad/uActividad';
+    public static D_ACTIVITY = '/rest/apiActividad/dActividad';
+    public static FWITHFECHASBYID_ACTIVITY = '/rest/apiActividad/fWithFechasById';
+    public static DAYS_MIN_MAX_TASK = '/rest/apiActividad/daysMinAndMaxByIdTarea';
+    
+    
+    /** MiniAcivity */
+    public static C_MINIACTIVITY = '/rest/apiMiniActividad/cMiniActividad';
+    public static ALL_MINIACTIVITY = '/rest/apiMiniActividad/allMiniActividad';
+    public static D_MINIACTIVITY = '/rest/apiMiniActividad/dMiniActividad';
+    public static U_ESTADO_MINIACTIVITY = '/rest/apiMiniActividad/uEstadoOfMiniActividad';
+    
+    
+    /** EstadoGant */
+    public static ALL_ESTADOGANT = '/rest/apiEstadoGant/allEstadoGant';
   }

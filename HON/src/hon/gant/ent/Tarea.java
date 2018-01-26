@@ -23,14 +23,16 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "tarea")
 @NamedQueries({
-	@NamedQuery(name="Tarea.all", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre) FROM Tarea t INNER JOIN t.proyecto p where p.id = :idProyecto and t.estado= :estado and p.estado = :estado order by t.id"),
-	@NamedQuery(name="Tarea.fById", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre, t.descripcion) FROM Tarea t where t.id= :id and t.estado =:estado"),
+	@NamedQuery(name="Tarea.all", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre, t.fechaInicio, t.fechaFin, t.color) FROM Tarea t INNER JOIN t.proyecto p where p.id = :idProyecto and t.estado= :estado and p.estado = :estado order by t.id"),
+	@NamedQuery(name="Tarea.fById", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.nombre, t.descripcion, t.fechaInicio, t.fechaFin) FROM Tarea t where t.id= :id and t.estado =:estado"),
+	@NamedQuery(name="Tarea.allFechas", query="SELECT NEW hon.gant.ent.Tarea(t.id, t.fechaInicio, t.fechaFin) FROM Tarea t INNER JOIN t.proyecto p where p.id = :idProyecto and t.estado= :estado and p.estado = :estado order by t.id")
 })
 public class Tarea implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	public static final String ALL="Tarea.all";
 	public static final String FBYID="Tarea.fById";
+	public static final String ALLFECHAS="Tarea.allFechas";
 
 	@Id
 	@SequenceGenerator(name="TAREA_GENERATOR", sequenceName="sec_tarea", allocationSize = 1, initialValue= 1)
@@ -67,15 +69,29 @@ public class Tarea implements Serializable{
 
 	public Tarea() {}
 
-	public Tarea(Long id, String nombre) {
+	//Tarea.all
+	public Tarea(Long id, String nombre, Date fechaInicio, Date fechaFin, String color) {
 		this.id = id;
 		this.nombre = nombre;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+		this.color = color;
 	}
 	
-	public Tarea(Long id, String nombre, String descripcion) {
+	//Tarea.fById
+	public Tarea(Long id, String nombre, String descripcion, Date fechaInicio, Date fechaFin) {
 		this.id = id;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
+	}
+	
+	//Tarea.allFechas
+	public Tarea(Long id, Date fechaInicio, Date fechaFin) {
+		this.id = id;
+		this.fechaInicio = fechaInicio;
+		this.fechaFin = fechaFin;
 	}
 
 	public Long getId() {

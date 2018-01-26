@@ -119,7 +119,6 @@ CREATE TABLE "miniactividad"(
  "esta_id" Bigint NOT NULL,
  "nombre" Character varying(256) NOT NULL,
  "color" Character varying(50) NOT NULL,
- "porcentajeavance" Double precision NOT NULL,
  "est" Bigint NOT NULL
 )
 ;

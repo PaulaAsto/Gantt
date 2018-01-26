@@ -2,35 +2,144 @@
 /*Color*/
 @blue-color-cab: #2C3E50;
 @green-color-body: #18BC9C;
+@gray-color-project: #607D8B;
 @orange-color-button: #d8842f;
 @red-color-body: #D82F2F;
 /*Other*/
 @min-height-body: 600px;
 
 .acti{
-    background-color: @red-color-body;
-    //border: 1px solid  @green-color-body;
-    min-height: @min-height-body;
+  background-color: @red-color-body;
+  min-height: @min-height-body;
 }
 .crono{
-    //border: 1px solid @blue-color-cab;
-    min-height: @min-height-body;
+  min-height: @min-height-body;
 }
+
 .btn-plus{
-    background-color: @orange-color-button;
-    color: white;
+  background-color: @orange-color-button;
+  color: white;
 }
+
+.btn-transparente{
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor:pointer;
+  overflow: hidden;
+  outline:none;
+  padding: 0px 8px;
+  color: @orange-color-button;
+}
+
 .divContent{
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .header {
-    color: @blue-color-cab;
-    font-size: 25px;
-    padding: 7px;
+  color: @blue-color-cab;
+  font-size: 25px;
+  padding: 7px;
 }
 
 .bigicon {
-    font-size: 35px;
-    color: @green-color-body;
+  font-size: 35px;
+  color: @green-color-body;
+}
+
+.project {
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+.project li {
+  position: relative;
+  cursor: pointer;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 2em;
+  border-radius: 4px;
+  width: 250px;
+}
+
+.project li:hover {
+  color: @gray-color-project;
+  background-color: #DDD;
+  left: .1em;
+}
+
+.project a {
+  color: #888;
+  text-decoration: none;
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.project a:hover {
+  color:@gray-color-project;
+}
+
+.project .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: @green-color-body;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 2em;
+  min-width: 16px;
+  text-align: right;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+.button {
+  background-color: @green-color-body;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+  height: 3em;
+  border: none;
+}
+
+button.go {
+  position: absolute;
+  margin-top: -3px;
+  padding: 3.4px 10px;
+  background-color: @green-color-body;
+  color: white;
+  border: none;
+  border-radius: 4px;
+}
+
+button.dcolor {
+  left: 250px;
+  height: 25px;
+}
+
+button.ddelete {
+  left: 304px;
+}
+button.dgo {
+  left: 336px;
+}
+button.dupdate {
+  left: 271px;
+}
+
+.pickco {
+  height: 20px;
+}
+
+.space{
+  min-height: 30px;
+}
+
+.withoutStyleType {
+  list-style-type: none;
 }
