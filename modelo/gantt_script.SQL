@@ -1,6 +1,6 @@
 ﻿/*
-Created: 12/26/2017
-Modified: 1/26/2018
+Created: 26/12/2017
+Modified: 26/01/2018
 Model: gantt
 Database: PostgreSQL 9.5
 */
@@ -117,7 +117,7 @@ CREATE TABLE "miniactividad"(
  "mini_acti_id" Bigint NOT NULL,
  "acti_id" Bigint NOT NULL,
  "esta_id" Bigint NOT NULL,
- "nombre" Character varying(256) NOT NULL,
+ "nombre" Character varying(2000) NOT NULL,
  "color" Character varying(50) NOT NULL,
  "est" Bigint NOT NULL
 )
